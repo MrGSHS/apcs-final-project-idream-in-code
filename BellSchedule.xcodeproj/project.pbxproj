@@ -30,6 +30,11 @@
 		CCEC26241CCC4AF300ABB61C /* MXLCalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC261B1CCC4AF300ABB61C /* MXLCalendarManager.m */; };
 		CCEC26261CCC4AF300ABB61C /* NSTimeZone+ProperAbbreviation.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC261D1CCC4AF300ABB61C /* NSTimeZone+ProperAbbreviation.m */; };
 		CCEC262A1CCF040900ABB61C /* CalendarLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC26291CCF040900ABB61C /* CalendarLoader.m */; };
+		CCEC26361CD3C4D000ABB61C /* cog.png in Resources */ = {isa = PBXBuildFile; fileRef = CCEC262E1CD3C4D000ABB61C /* cog.png */; };
+		CCEC26371CD3C4D000ABB61C /* cog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCEC262F1CD3C4D000ABB61C /* cog@2x.png */; };
+		CCEC26381CD3C4D000ABB61C /* DDCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC26311CD3C4D000ABB61C /* DDCollectionViewLayout.m */; };
+		CCEC26391CD3C4D000ABB61C /* DDMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC26331CD3C4D000ABB61C /* DDMenu.m */; };
+		CCEC263A1CD3C4D000ABB61C /* DDMenuCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC26351CD3C4D000ABB61C /* DDMenuCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +98,14 @@
 		CCEC26291CCF040900ABB61C /* CalendarLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarLoader.m; sourceTree = "<group>"; };
 		CCEC262B1CD1B0C100ABB61C /* ScheduleWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ScheduleWidget.entitlements; sourceTree = "<group>"; };
 		CCEC262C1CD1B0EF00ABB61C /* BellSchedule.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BellSchedule.entitlements; sourceTree = "<group>"; };
+		CCEC262E1CD3C4D000ABB61C /* cog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cog.png; sourceTree = "<group>"; };
+		CCEC262F1CD3C4D000ABB61C /* cog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cog@2x.png"; sourceTree = "<group>"; };
+		CCEC26301CD3C4D000ABB61C /* DDCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCollectionViewLayout.h; sourceTree = "<group>"; };
+		CCEC26311CD3C4D000ABB61C /* DDCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCollectionViewLayout.m; sourceTree = "<group>"; };
+		CCEC26321CD3C4D000ABB61C /* DDMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMenu.h; sourceTree = "<group>"; };
+		CCEC26331CD3C4D000ABB61C /* DDMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMenu.m; sourceTree = "<group>"; };
+		CCEC26341CD3C4D000ABB61C /* DDMenuCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMenuCollectionViewCell.h; sourceTree = "<group>"; };
+		CCEC26351CD3C4D000ABB61C /* DDMenuCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMenuCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +172,7 @@
 		CC4D11B31CB8BE9300CD28F7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CCEC262D1CD3C4B900ABB61C /* DDMenu */,
 				CCEC26131CCC4ABE00ABB61C /* MXLCalendarManager */,
 				CCEC26121CCC4AAB00ABB61C /* UAProgressView */,
 				CC4D11B41CB8BE9300CD28F7 /* main.m */,
@@ -210,6 +224,21 @@
 				CCEC261D1CCC4AF300ABB61C /* NSTimeZone+ProperAbbreviation.m */,
 			);
 			name = MXLCalendarManager;
+			sourceTree = "<group>";
+		};
+		CCEC262D1CD3C4B900ABB61C /* DDMenu */ = {
+			isa = PBXGroup;
+			children = (
+				CCEC262E1CD3C4D000ABB61C /* cog.png */,
+				CCEC262F1CD3C4D000ABB61C /* cog@2x.png */,
+				CCEC26301CD3C4D000ABB61C /* DDCollectionViewLayout.h */,
+				CCEC26311CD3C4D000ABB61C /* DDCollectionViewLayout.m */,
+				CCEC26321CD3C4D000ABB61C /* DDMenu.h */,
+				CCEC26331CD3C4D000ABB61C /* DDMenu.m */,
+				CCEC26341CD3C4D000ABB61C /* DDMenuCollectionViewCell.h */,
+				CCEC26351CD3C4D000ABB61C /* DDMenuCollectionViewCell.m */,
+			);
+			name = DDMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,9 +333,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCEC26371CD3C4D000ABB61C /* cog@2x.png in Resources */,
 				CC4D11C31CB8BE9300CD28F7 /* LaunchScreen.storyboard in Resources */,
 				CC4D11C01CB8BE9300CD28F7 /* Assets.xcassets in Resources */,
 				CC4D11BE1CB8BE9300CD28F7 /* Main.storyboard in Resources */,
+				CCEC26361CD3C4D000ABB61C /* cog.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,13 +356,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCEC26381CD3C4D000ABB61C /* DDCollectionViewLayout.m in Sources */,
 				CC4D11CC1CB8C0E300CD28F7 /* ScheduleManager.m in Sources */,
 				CC4D11BB1CB8BE9300CD28F7 /* ViewController.m in Sources */,
 				CCEC25EB1CC87C9000ABB61C /* Schedule.m in Sources */,
 				CCEC261E1CCC4AF300ABB61C /* MXLCalendar.m in Sources */,
 				CCEC26221CCC4AF300ABB61C /* MXLCalendarEvent.m in Sources */,
 				CC4D11B81CB8BE9300CD28F7 /* AppDelegate.m in Sources */,
+				CCEC26391CD3C4D000ABB61C /* DDMenu.m in Sources */,
 				CCEC26201CCC4AF300ABB61C /* MXLCalendarAttendee.m in Sources */,
+				CCEC263A1CD3C4D000ABB61C /* DDMenuCollectionViewCell.m in Sources */,
 				CC4D11B51CB8BE9300CD28F7 /* main.m in Sources */,
 				CCEC262A1CCF040900ABB61C /* CalendarLoader.m in Sources */,
 				CC4D11E41CB9B5B500CD28F7 /* TodayViewController.m in Sources */,

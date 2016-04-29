@@ -239,9 +239,18 @@
     if (![self inSession]) {
         return 0;
     }
-    NSInteger totalClass = ([_schedule[currentPeriod][2] hour] - [_schedule[currentPeriod][1] hour])*60 + ([_schedule[currentPeriod][2] minute] - [_schedule[currentPeriod][1] minute]);
+    NSInteger houri = [[_schedule[currentPeriod] objectAtIndex:2] hour];
+    NSInteger minutei = [[_schedule[currentPeriod] objectAtIndex:2] minute];
+    NSInteger hourf = [[_schedule[currentPeriod] objectAtIndex:1] hour];
+    NSInteger minutef = [[_schedule[currentPeriod] objectAtIndex:1] minute];
+
+    //  return ([_schedule[currentPeriod][2] intValue] -(float)t);
+    // NSLog(@"h: %i, h2: %i, m: %i, m2: %i", hour,hour2,minute,min2);
+    float totalClass =  ((houri - hourf)*60 + (minutei - minutef));
+
     
-    return ([self timeRemaining]/ totalClass);
+    
+    return (1-([self timeRemaining]/ totalClass));
 }
 
 // Time remaining
