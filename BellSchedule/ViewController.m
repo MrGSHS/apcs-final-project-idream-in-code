@@ -19,9 +19,9 @@
     [super viewDidLoad];
     // Load calendar
     CalendarLoader *cl = [[CalendarLoader alloc] init];
-    [cl downloadCalendarForSchool:@"aeshs" andWithCH:^{
+    [cl downloadCalendarForSchool:@"adlaiestevenson" andWithCH:^{
         // Start up schedule upon completion
-        sm = [[ScheduleManager alloc] init];
+        sm = [[ScheduleManager alloc] initWithSchool:@"adlaiestevenson"];
         
         NSTimer *t = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(updateUI) userInfo:nil repeats:YES];
         
@@ -45,7 +45,7 @@
     [progressView setProgress:[sm timeRatio] animated:YES];
     
     //Time remaining
-    [timeLeft setText:[NSString stringWithFormat:@"%i minutes remaining", [sm timeRemaining]]];
+    [timeLeft setText:[NSString stringWithFormat:@"%i minutes remaining", (int)[sm timeRemaining]]];
     
     //Start to end
     [timeRange setText:[sm getClassLength]];

@@ -18,7 +18,7 @@
     
     MXLCalendarManager *m = [[MXLCalendarManager alloc] init];
     // grab calendar file from website
-    [m scanICSFileAtRemoteURL:[NSURL URLWithString:@"http://alirahm.com/calendars/adlaiestevenson.ics"] withCompletionHandler:^(MXLCalendar *cal, NSError *e){
+    [m scanICSFileAtRemoteURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://alirahm.com/calendars/%@.ics", school]] withCompletionHandler:^(MXLCalendar *cal, NSError *e){
         //get the documents directory:
         NSArray *paths = NSSearchPathForDirectoriesInDomains
         (NSDocumentDirectory, NSUserDomainMask, YES);

@@ -11,7 +11,8 @@
 
 @interface TodayViewController : UIViewController {
     IBOutlet UILabel *periodLabel;
-    IBOutlet UIProgressView *timeRemaining;
+    IBOutlet UIProgressView *timeRatio;
+    IBOutlet UILabel *timeRemaining;
     ScheduleManager *sm;
 }
 

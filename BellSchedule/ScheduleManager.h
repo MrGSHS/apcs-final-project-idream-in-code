@@ -10,8 +10,8 @@
 #import "Schedule.h"
 
 @interface ScheduleManager : NSObject {
-    int t; //current time
-    int p; //current period
+    NSDateComponents *currentTime;
+    int currentPeriod; //current period
     Schedule *currentSchedule;
 }
 
@@ -19,7 +19,7 @@
 
 - (NSString *)periodForTime;
 -(float)timeRatio;
--(int)timeRemaining;
+-(NSInteger)timeRemaining;
 -(NSString *)getClassLength;
-
+-(id)initWithSchool:(NSString *)s;
 @end

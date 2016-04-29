@@ -19,8 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvu-di-M4T">
-                                <rect key="frame" x="7" y="8" width="135" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvu-di-M4T">
+                                <rect key="frame" x="18" y="8" width="135" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="tvu-di-M4T" secondAttribute="height" multiplier="45:7" id="NUC-eb-0Og"/>
                                 </constraints>
@@ -28,19 +28,32 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jKF-Or-j5p">
-                                <rect key="frame" x="150" y="18" width="150" height="2"/>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jKF-Or-j5p">
+                                <rect key="frame" x="233" y="17.5" width="77" height="2"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="8Bl-Cm-vCu"/>
+                                    <constraint firstAttribute="width" constant="77" id="8Bl-Cm-vCu"/>
                                     <constraint firstAttribute="height" constant="2" id="CCO-Tk-FIx"/>
                                 </constraints>
                             </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="55" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rn-TA-VEn">
+                                <rect key="frame" x="197" y="8" width="32" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="4fu-zi-Xu5"/>
+                                    <constraint firstAttribute="height" constant="21" id="a4w-5I-bJ0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="6rn-TA-VEn" secondAttribute="trailing" constant="75" id="Dtr-ZH-Siq"/>
                             <constraint firstItem="jKF-Or-j5p" firstAttribute="trailing" secondItem="S3S-Oj-5AN" secondAttribute="trailingMargin" constant="6" id="ENx-B6-zd6"/>
                             <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="tvu-di-M4T" secondAttribute="bottom" constant="8" id="JvV-7T-3rQ"/>
                             <constraint firstItem="tvu-di-M4T" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" constant="2" id="Mox-Lt-lVQ"/>
                             <constraint firstItem="tvu-di-M4T" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="8" id="NaO-Cp-f7t"/>
+                            <constraint firstItem="6rn-TA-VEn" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="WOu-9T-ddx"/>
+                            <constraint firstItem="jKF-Or-j5p" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="kga-8f-aey"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -51,7 +64,8 @@
                     <size key="freeformSize" width="320" height="37"/>
                     <connections>
                         <outlet property="periodLabel" destination="tvu-di-M4T" id="V2k-pV-KKd"/>
-                        <outlet property="timeRemaining" destination="jKF-Or-j5p" id="tOG-KK-xJj"/>
+                        <outlet property="timeRatio" destination="jKF-Or-j5p" id="c9U-86-My7"/>
+                        <outlet property="timeRemaining" destination="6rn-TA-VEn" id="hkM-Wr-d6A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>

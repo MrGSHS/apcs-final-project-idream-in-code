@@ -19,8 +19,11 @@
     [super viewDidLoad];
     sm = [[ScheduleManager alloc] init];
     NSString *period = [sm periodForTime];
-    [timeRemaining setProgress:[sm timeRatio] animated:NO];
+    NSString *timeRem = [NSString stringWithFormat:@"%i",(int)[sm timeRemaining]];
+    [timeRatio setProgress:1-[sm timeRatio] animated:NO];
     [periodLabel setText:period];
+    [timeRemaining setText:timeRem];
+    
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -34,9 +37,11 @@
     // Perform any setup necessary in order to update the view.
     
     NSString *period = [sm periodForTime];
-    [timeRemaining setProgress:[sm timeRatio] animated:NO];
-    if (period != periodLabel.text) {
+    NSString *timeRem = [NSString stringWithFormat:@"%i",(int)[sm timeRemaining]];
+    [timeRatio setProgress:1-[sm timeRatio] animated:NO];
+    if (period != periodLabel.text || timeRemaining.text != timeRem) {
         [periodLabel setText:period];
+        [timeRemaining setText:timeRem];
         completionHandler(NCUpdateResultNewData);
     }
   /*  else if (timeRemaining != timeRem.text) {
