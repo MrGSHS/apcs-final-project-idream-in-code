@@ -20,6 +20,7 @@
         }
         
         _schedule = [currentSchedule getArray];
+        
     }
     return self;
 }
@@ -116,15 +117,13 @@
                     }
                 }
             }
-            else {
-                currentSchedule = [schedule objectAtIndex:0];
-                currentPeriod = -1;
-                return true;
-            }
+    
         }
         
     }
     currentSchedule = [schedule objectAtIndex:0];
+    currentPeriod = -1;
+
     return false;
 }
 
@@ -134,6 +133,9 @@
     NSCalendar *gregorianCal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     currentTime = [gregorianCal components: (NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitMinute)
                                   fromDate: [NSDate date]];
+    
+    
+   
     NSInteger hr = [currentTime hour];
     NSInteger min = [currentTime minute];
     
@@ -143,7 +145,7 @@
         NSInteger startHr = [_schedule[period][1] hour];
         NSInteger endMin = [_schedule[period][2] minute];
         NSInteger endHr = [_schedule[period][2] hour];
-        NSLog(@"%i:%i, %i:%i, %i:%i", (int)hr, (int)min, (int)startHr, (int)startMin,(int) endHr, (int)endMin);
+      //  NSLog(@"%i:%i, %i:%i, %i:%i", (int)hr, (int)min, (int)startHr, (int)startMin,(int) endHr, (int)endMin);
         
         // Current time is between a classes start and end...
         if ([self aDateComponent:currentTime isBetween:_schedule[period][1] and:_schedule[period][2]] == 1) {
@@ -151,7 +153,6 @@
         }
         
     }
-    
 }
 
 -(int)aDateComponent:(NSDateComponents *)a isBetween:(NSDateComponents *)b and:(NSDateComponents *)c {
@@ -176,9 +177,9 @@
 // Returns current period as a string
 - (NSString *)periodForTime {
     [self updatePeriod];
-    int d = (int)[currentTime weekday];
-    if (d == 0 || d == 7) return @"Weekend";
-    if (currentPeriod == -1) {
+    if ([self isWeekend]) return @"Weekend";
+    
+       if (currentPeriod == -1) {
         if ([self aDateComponent:currentTime isBetween:_schedule[0][1] and:_schedule[_schedule.count-1][2]] == 1) {
             return @"Passing period";
         }
@@ -227,6 +228,40 @@
     return @"None.";
 }
 
+-(NSString *)getClassLengthOf:(NSInteger)period {
+        if ([self inSession] && (period >= 0 && period <_schedule.count)) {
+            int startHour = (int)[_schedule[period][1] hour];
+            int startMinute = (int)[_schedule[period][1] minute];
+            
+            NSString *s = @"";
+            if (startHour > 12) {
+                startHour = startHour - 12;
+                if (startHour == 0) s = [NSString stringWithFormat:@"12:%02i PM", startHour ];
+                else s = [NSString stringWithFormat:@"%i:%02i PM", startHour, startMinute];
+            }
+            else {
+                s = [NSString stringWithFormat:@"%i:%02i AM", startHour, startMinute];
+                
+            }
+            int endHour = (int)[_schedule[period][2] hour];
+            int endMinute = (int)[_schedule[period][2] minute];
+            // NSLog(@"Start: %i    End: %i", start,end);
+            
+            NSString *e = @"";
+            if (endHour > 12) {
+                
+                endHour = endHour - 12;
+                if (endHour == 0) e = [NSString stringWithFormat:@"12:%02i PM", endHour];
+                else e = [NSString stringWithFormat:@"%i:%02i PM",  endHour, endMinute];
+            }
+            else {
+                e = [NSString stringWithFormat:@"%i:%02i AM", endHour, endMinute];
+            }
+            
+            return [NSString stringWithFormat:@"%@ - %@", s,e];
+        }
+        return @"None.";
+}
 
 ////////////////////////////////////
 //  Utility Methods used for UI ///
@@ -268,6 +303,12 @@
         
     }
     return 0;
+}
+
+-(BOOL)isWeekend {
+    int d = (int)[currentTime weekday];
+    return (d  == 1 || d == 7);
+    
 }
 
 @end

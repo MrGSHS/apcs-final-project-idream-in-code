@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "UAProgressView.h"
 #import "ScheduleManager.h"
+#import "SlideNavigationController.h"
 
-@interface ViewController : UIViewController {
+
+@interface ViewController : UIViewController <SlideNavigationControllerDelegate>{
+    SlideNavigationController *slideNavigation;
     IBOutlet UILabel *classPeriod;
     IBOutlet UILabel *timeLeft;
     IBOutlet UILabel *timeRange;

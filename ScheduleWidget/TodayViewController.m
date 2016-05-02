@@ -17,7 +17,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    sm = [[ScheduleManager alloc] init];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"SchoolName"] == nil) {
+        [[NSUserDefaults standardUserDefaults] setValue: @"adlaiestevenson" forKey:@"SchoolName"];
+        [[NSUserDefaults standardUserDefaults] setValue:@"Adlai E. Stevenson High School" forKey:@"SchoolDisplay"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    NSString *school = [[NSUserDefaults standardUserDefaults] valueForKey:@"SchoolName"];
+
+    sm = [[ScheduleManager alloc] initWithSchool:school];
     NSString *period = [sm periodForTime];
     NSString *timeRem = [NSString stringWithFormat:@"%i",(int)[sm timeRemaining]];
     [timeRatio setProgress:1-[sm timeRatio] animated:NO];
@@ -38,7 +45,7 @@
     
     NSString *period = [sm periodForTime];
     NSString *timeRem = [NSString stringWithFormat:@"%i",(int)[sm timeRemaining]];
-    [timeRatio setProgress:1-[sm timeRatio] animated:NO];
+    [timeRatio setProgress:[sm timeRatio] animated:NO];
     if (period != periodLabel.text || timeRemaining.text != timeRem) {
         [periodLabel setText:period];
         [timeRemaining setText:timeRem];

@@ -22,6 +22,8 @@
 		CC4D11DF1CB9B44800CD28F7 /* ScheduleWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CC4D11D11CB9B44800CD28F7 /* ScheduleWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CC4D11E41CB9B5B500CD28F7 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4D11D71CB9B44800CD28F7 /* TodayViewController.m */; };
 		CC4D11E51CB9B5B800CD28F7 /* ScheduleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4D11CB1CB8C0E300CD28F7 /* ScheduleManager.m */; };
+		CC637A4A1CD926D200C6115A /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC637A491CD926D200C6115A /* SettingsViewController.m */; };
+		CC637A4E1CD9288300C6115A /* MPGTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CC637A4D1CD9288300C6115A /* MPGTextField.m */; };
 		CCEC25EB1CC87C9000ABB61C /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC25EA1CC87C9000ABB61C /* Schedule.m */; };
 		CCEC25ED1CC8818700ABB61C /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC25EA1CC87C9000ABB61C /* Schedule.m */; };
 		CCEC261E1CCC4AF300ABB61C /* MXLCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC26151CCC4AF300ABB61C /* MXLCalendar.m */; };
@@ -30,11 +32,16 @@
 		CCEC26241CCC4AF300ABB61C /* MXLCalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC261B1CCC4AF300ABB61C /* MXLCalendarManager.m */; };
 		CCEC26261CCC4AF300ABB61C /* NSTimeZone+ProperAbbreviation.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC261D1CCC4AF300ABB61C /* NSTimeZone+ProperAbbreviation.m */; };
 		CCEC262A1CCF040900ABB61C /* CalendarLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC26291CCF040900ABB61C /* CalendarLoader.m */; };
-		CCEC26361CD3C4D000ABB61C /* cog.png in Resources */ = {isa = PBXBuildFile; fileRef = CCEC262E1CD3C4D000ABB61C /* cog.png */; };
-		CCEC26371CD3C4D000ABB61C /* cog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCEC262F1CD3C4D000ABB61C /* cog@2x.png */; };
-		CCEC26381CD3C4D000ABB61C /* DDCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC26311CD3C4D000ABB61C /* DDCollectionViewLayout.m */; };
-		CCEC26391CD3C4D000ABB61C /* DDMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC26331CD3C4D000ABB61C /* DDMenu.m */; };
-		CCEC263A1CD3C4D000ABB61C /* DDMenuCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC26351CD3C4D000ABB61C /* DDMenuCollectionViewCell.m */; };
+		CCEC263D1CD3ECCB00ABB61C /* ScheduleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC263C1CD3ECCB00ABB61C /* ScheduleListViewController.m */; };
+		CCEC26501CD46B6800ABB61C /* SlideNavigationContorllerAnimatorFade.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC26421CD46B6800ABB61C /* SlideNavigationContorllerAnimatorFade.m */; };
+		CCEC26511CD46B6800ABB61C /* SlideNavigationContorllerAnimatorScale.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC26441CD46B6800ABB61C /* SlideNavigationContorllerAnimatorScale.m */; };
+		CCEC26521CD46B6800ABB61C /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC26461CD46B6800ABB61C /* SlideNavigationContorllerAnimatorScaleAndFade.m */; };
+		CCEC26531CD46B6800ABB61C /* SlideNavigationContorllerAnimatorSlide.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC26481CD46B6800ABB61C /* SlideNavigationContorllerAnimatorSlide.m */; };
+		CCEC26541CD46B6800ABB61C /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC264A1CD46B6800ABB61C /* SlideNavigationContorllerAnimatorSlideAndFade.m */; };
+		CCEC26551CD46B6800ABB61C /* menu-button.png in Resources */ = {isa = PBXBuildFile; fileRef = CCEC264C1CD46B6800ABB61C /* menu-button.png */; };
+		CCEC26561CD46B6800ABB61C /* menu-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCEC264D1CD46B6800ABB61C /* menu-button@2x.png */; };
+		CCEC26571CD46B6800ABB61C /* SlideNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC264F1CD46B6800ABB61C /* SlideNavigationController.m */; };
+		CCEC26591CD4FDCD00ABB61C /* hamburger.png in Resources */ = {isa = PBXBuildFile; fileRef = CCEC26581CD4FDCD00ABB61C /* hamburger.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +89,10 @@
 		CC4D11D71CB9B44800CD28F7 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
 		CC4D11DA1CB9B44800CD28F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		CC4D11DC1CB9B44800CD28F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC637A481CD926D200C6115A /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		CC637A491CD926D200C6115A /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		CC637A4C1CD9288300C6115A /* MPGTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPGTextField.h; sourceTree = "<group>"; };
+		CC637A4D1CD9288300C6115A /* MPGTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPGTextField.m; sourceTree = "<group>"; };
 		CCEC25E91CC87C9000ABB61C /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
 		CCEC25EA1CC87C9000ABB61C /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
 		CCEC26141CCC4AF300ABB61C /* MXLCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXLCalendar.h; sourceTree = "<group>"; };
@@ -98,14 +109,24 @@
 		CCEC26291CCF040900ABB61C /* CalendarLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarLoader.m; sourceTree = "<group>"; };
 		CCEC262B1CD1B0C100ABB61C /* ScheduleWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ScheduleWidget.entitlements; sourceTree = "<group>"; };
 		CCEC262C1CD1B0EF00ABB61C /* BellSchedule.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BellSchedule.entitlements; sourceTree = "<group>"; };
-		CCEC262E1CD3C4D000ABB61C /* cog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cog.png; sourceTree = "<group>"; };
-		CCEC262F1CD3C4D000ABB61C /* cog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cog@2x.png"; sourceTree = "<group>"; };
-		CCEC26301CD3C4D000ABB61C /* DDCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCollectionViewLayout.h; sourceTree = "<group>"; };
-		CCEC26311CD3C4D000ABB61C /* DDCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCollectionViewLayout.m; sourceTree = "<group>"; };
-		CCEC26321CD3C4D000ABB61C /* DDMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMenu.h; sourceTree = "<group>"; };
-		CCEC26331CD3C4D000ABB61C /* DDMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMenu.m; sourceTree = "<group>"; };
-		CCEC26341CD3C4D000ABB61C /* DDMenuCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMenuCollectionViewCell.h; sourceTree = "<group>"; };
-		CCEC26351CD3C4D000ABB61C /* DDMenuCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMenuCollectionViewCell.m; sourceTree = "<group>"; };
+		CCEC263B1CD3ECCB00ABB61C /* ScheduleListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleListViewController.h; sourceTree = "<group>"; };
+		CCEC263C1CD3ECCB00ABB61C /* ScheduleListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleListViewController.m; sourceTree = "<group>"; };
+		CCEC26401CD46B6800ABB61C /* SlideNavigationContorllerAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimator.h; sourceTree = "<group>"; };
+		CCEC26411CD46B6800ABB61C /* SlideNavigationContorllerAnimatorFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorFade.h; sourceTree = "<group>"; };
+		CCEC26421CD46B6800ABB61C /* SlideNavigationContorllerAnimatorFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorFade.m; sourceTree = "<group>"; };
+		CCEC26431CD46B6800ABB61C /* SlideNavigationContorllerAnimatorScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorScale.h; sourceTree = "<group>"; };
+		CCEC26441CD46B6800ABB61C /* SlideNavigationContorllerAnimatorScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorScale.m; sourceTree = "<group>"; };
+		CCEC26451CD46B6800ABB61C /* SlideNavigationContorllerAnimatorScaleAndFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorScaleAndFade.h; sourceTree = "<group>"; };
+		CCEC26461CD46B6800ABB61C /* SlideNavigationContorllerAnimatorScaleAndFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorScaleAndFade.m; sourceTree = "<group>"; };
+		CCEC26471CD46B6800ABB61C /* SlideNavigationContorllerAnimatorSlide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorSlide.h; sourceTree = "<group>"; };
+		CCEC26481CD46B6800ABB61C /* SlideNavigationContorllerAnimatorSlide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorSlide.m; sourceTree = "<group>"; };
+		CCEC26491CD46B6800ABB61C /* SlideNavigationContorllerAnimatorSlideAndFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorSlideAndFade.h; sourceTree = "<group>"; };
+		CCEC264A1CD46B6800ABB61C /* SlideNavigationContorllerAnimatorSlideAndFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorSlideAndFade.m; sourceTree = "<group>"; };
+		CCEC264C1CD46B6800ABB61C /* menu-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-button.png"; sourceTree = "<group>"; };
+		CCEC264D1CD46B6800ABB61C /* menu-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-button@2x.png"; sourceTree = "<group>"; };
+		CCEC264E1CD46B6800ABB61C /* SlideNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationController.h; sourceTree = "<group>"; };
+		CCEC264F1CD46B6800ABB61C /* SlideNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationController.m; sourceTree = "<group>"; };
+		CCEC26581CD4FDCD00ABB61C /* hamburger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hamburger.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +175,10 @@
 				CC4D11B71CB8BE9300CD28F7 /* AppDelegate.m */,
 				CC4D11B91CB8BE9300CD28F7 /* ViewController.h */,
 				CC4D11BA1CB8BE9300CD28F7 /* ViewController.m */,
+				CCEC263B1CD3ECCB00ABB61C /* ScheduleListViewController.h */,
+				CCEC263C1CD3ECCB00ABB61C /* ScheduleListViewController.m */,
+				CC637A481CD926D200C6115A /* SettingsViewController.h */,
+				CC637A491CD926D200C6115A /* SettingsViewController.m */,
 				CCEC25E91CC87C9000ABB61C /* Schedule.h */,
 				CCEC25EA1CC87C9000ABB61C /* Schedule.m */,
 				CC4D11CA1CB8C0E300CD28F7 /* ScheduleManager.h */,
@@ -172,7 +197,8 @@
 		CC4D11B31CB8BE9300CD28F7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CCEC262D1CD3C4B900ABB61C /* DDMenu */,
+				CC637A4B1CD9286D00C6115A /* MPGTextfield */,
+				CCEC263E1CD46B4500ABB61C /* Slide Menu */,
 				CCEC26131CCC4ABE00ABB61C /* MXLCalendarManager */,
 				CCEC26121CCC4AAB00ABB61C /* UAProgressView */,
 				CC4D11B41CB8BE9300CD28F7 /* main.m */,
@@ -198,6 +224,15 @@
 				CC4D11DC1CB9B44800CD28F7 /* Info.plist */,
 			);
 			path = ScheduleWidget;
+			sourceTree = "<group>";
+		};
+		CC637A4B1CD9286D00C6115A /* MPGTextfield */ = {
+			isa = PBXGroup;
+			children = (
+				CC637A4C1CD9288300C6115A /* MPGTextField.h */,
+				CC637A4D1CD9288300C6115A /* MPGTextField.m */,
+			);
+			name = MPGTextfield;
 			sourceTree = "<group>";
 		};
 		CCEC26121CCC4AAB00ABB61C /* UAProgressView */ = {
@@ -226,19 +261,43 @@
 			name = MXLCalendarManager;
 			sourceTree = "<group>";
 		};
-		CCEC262D1CD3C4B900ABB61C /* DDMenu */ = {
+		CCEC263E1CD46B4500ABB61C /* Slide Menu */ = {
 			isa = PBXGroup;
 			children = (
-				CCEC262E1CD3C4D000ABB61C /* cog.png */,
-				CCEC262F1CD3C4D000ABB61C /* cog@2x.png */,
-				CCEC26301CD3C4D000ABB61C /* DDCollectionViewLayout.h */,
-				CCEC26311CD3C4D000ABB61C /* DDCollectionViewLayout.m */,
-				CCEC26321CD3C4D000ABB61C /* DDMenu.h */,
-				CCEC26331CD3C4D000ABB61C /* DDMenu.m */,
-				CCEC26341CD3C4D000ABB61C /* DDMenuCollectionViewCell.h */,
-				CCEC26351CD3C4D000ABB61C /* DDMenuCollectionViewCell.m */,
+				CCEC263F1CD46B6800ABB61C /* Animations */,
+				CCEC264B1CD46B6800ABB61C /* Assets */,
+				CCEC264E1CD46B6800ABB61C /* SlideNavigationController.h */,
+				CCEC264F1CD46B6800ABB61C /* SlideNavigationController.m */,
 			);
-			name = DDMenu;
+			name = "Slide Menu";
+			sourceTree = "<group>";
+		};
+		CCEC263F1CD46B6800ABB61C /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				CCEC26401CD46B6800ABB61C /* SlideNavigationContorllerAnimator.h */,
+				CCEC26411CD46B6800ABB61C /* SlideNavigationContorllerAnimatorFade.h */,
+				CCEC26421CD46B6800ABB61C /* SlideNavigationContorllerAnimatorFade.m */,
+				CCEC26431CD46B6800ABB61C /* SlideNavigationContorllerAnimatorScale.h */,
+				CCEC26441CD46B6800ABB61C /* SlideNavigationContorllerAnimatorScale.m */,
+				CCEC26451CD46B6800ABB61C /* SlideNavigationContorllerAnimatorScaleAndFade.h */,
+				CCEC26461CD46B6800ABB61C /* SlideNavigationContorllerAnimatorScaleAndFade.m */,
+				CCEC26471CD46B6800ABB61C /* SlideNavigationContorllerAnimatorSlide.h */,
+				CCEC26481CD46B6800ABB61C /* SlideNavigationContorllerAnimatorSlide.m */,
+				CCEC26491CD46B6800ABB61C /* SlideNavigationContorllerAnimatorSlideAndFade.h */,
+				CCEC264A1CD46B6800ABB61C /* SlideNavigationContorllerAnimatorSlideAndFade.m */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		CCEC264B1CD46B6800ABB61C /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				CCEC26581CD4FDCD00ABB61C /* hamburger.png */,
+				CCEC264C1CD46B6800ABB61C /* menu-button.png */,
+				CCEC264D1CD46B6800ABB61C /* menu-button@2x.png */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,11 +392,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCEC26371CD3C4D000ABB61C /* cog@2x.png in Resources */,
+				CCEC26591CD4FDCD00ABB61C /* hamburger.png in Resources */,
+				CCEC26551CD46B6800ABB61C /* menu-button.png in Resources */,
 				CC4D11C31CB8BE9300CD28F7 /* LaunchScreen.storyboard in Resources */,
 				CC4D11C01CB8BE9300CD28F7 /* Assets.xcassets in Resources */,
+				CCEC26561CD46B6800ABB61C /* menu-button@2x.png in Resources */,
 				CC4D11BE1CB8BE9300CD28F7 /* Main.storyboard in Resources */,
-				CCEC26361CD3C4D000ABB61C /* cog.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,22 +416,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCEC26381CD3C4D000ABB61C /* DDCollectionViewLayout.m in Sources */,
 				CC4D11CC1CB8C0E300CD28F7 /* ScheduleManager.m in Sources */,
 				CC4D11BB1CB8BE9300CD28F7 /* ViewController.m in Sources */,
 				CCEC25EB1CC87C9000ABB61C /* Schedule.m in Sources */,
 				CCEC261E1CCC4AF300ABB61C /* MXLCalendar.m in Sources */,
 				CCEC26221CCC4AF300ABB61C /* MXLCalendarEvent.m in Sources */,
+				CCEC263D1CD3ECCB00ABB61C /* ScheduleListViewController.m in Sources */,
+				CC637A4A1CD926D200C6115A /* SettingsViewController.m in Sources */,
+				CCEC26541CD46B6800ABB61C /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				CC4D11B81CB8BE9300CD28F7 /* AppDelegate.m in Sources */,
-				CCEC26391CD3C4D000ABB61C /* DDMenu.m in Sources */,
 				CCEC26201CCC4AF300ABB61C /* MXLCalendarAttendee.m in Sources */,
-				CCEC263A1CD3C4D000ABB61C /* DDMenuCollectionViewCell.m in Sources */,
+				CCEC26531CD46B6800ABB61C /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 				CC4D11B51CB8BE9300CD28F7 /* main.m in Sources */,
+				CCEC26501CD46B6800ABB61C /* SlideNavigationContorllerAnimatorFade.m in Sources */,
+				CCEC26521CD46B6800ABB61C /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				CCEC262A1CCF040900ABB61C /* CalendarLoader.m in Sources */,
+				CCEC26511CD46B6800ABB61C /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				CC4D11E41CB9B5B500CD28F7 /* TodayViewController.m in Sources */,
 				CCEC26241CCC4AF300ABB61C /* MXLCalendarManager.m in Sources */,
 				CC32ADDC1CBD2C7E000FCC9B /* UAProgressView.m in Sources */,
 				CCEC26261CCC4AF300ABB61C /* NSTimeZone+ProperAbbreviation.m in Sources */,
+				CC637A4E1CD9288300C6115A /* MPGTextField.m in Sources */,
+				CCEC26571CD46B6800ABB61C /* SlideNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "CalendarLoader.h"
-
+#import "ScheduleListViewController.h"
 @interface ViewController ()
 
 @end
@@ -17,21 +17,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Load calendar
+    NSLog(@"View did load");
+    [self config];
+    }
+-(void)config {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"SchoolName"] == nil) {
+        [[NSUserDefaults standardUserDefaults] setValue: @"adlaiestevenson" forKey:@"SchoolName"];
+        [[NSUserDefaults standardUserDefaults] setValue:@"Adlai E. Stevenson High School" forKey:@"SchoolDisplay"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    NSString *school = [[NSUserDefaults standardUserDefaults] valueForKey:@"SchoolName"];
     CalendarLoader *cl = [[CalendarLoader alloc] init];
-    [cl downloadCalendarForSchool:@"adlaiestevenson" andWithCH:^{
-        // Start up schedule upon completion
-        sm = [[ScheduleManager alloc] initWithSchool:@"adlaiestevenson"];
+    [cl downloadCalendarForSchool:school andWithCH:^{
+        // Start up schedule upon completion (downloads schedule)
+        sm = [[ScheduleManager alloc] initWithSchool:school];
         
+        
+        [[SlideNavigationController sharedInstance] setEnableSwipeGesture:YES];
         NSTimer *t = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(updateUI) userInfo:nil repeats:YES];
         
         [t fire];
         
-
+        
     }];
+}
 
-    
-    }
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    [self config];
+    NSLog(@"View Will Appear");
+}
 
 -(void)updateUI {
   //  NSLog(@"Updating UI");
@@ -58,6 +73,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
+{
+    return YES;
+}
 
 
 @end

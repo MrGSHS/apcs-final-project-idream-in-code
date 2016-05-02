@@ -21,5 +21,6 @@
 -(float)timeRatio;
 -(NSInteger)timeRemaining;
 -(NSString *)getClassLength;
+-(NSString *)getClassLengthOf:(NSInteger)period;
 -(id)initWithSchool:(NSString *)s;
 @end

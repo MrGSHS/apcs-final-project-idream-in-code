@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "ScheduleListViewController.h"
+#import "SlideNavigationController.h"
 @interface AppDelegate ()
 
 @end
@@ -17,7 +18,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     [[NSUserDefaults standardUserDefaults] setValue:@(NO) forKey:@"_UIConstraintBasedLayoutLogUnsatisfiable"];
+    ScheduleListViewController *leftMenu = (ScheduleListViewController *)[storyboard instantiateViewControllerWithIdentifier:@"scheduleList"];
+    [SlideNavigationController sharedInstance].leftMenu = leftMenu;
 
     return YES;
 }
