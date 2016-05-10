@@ -19,14 +19,13 @@
     MXLCalendarManager *m = [[MXLCalendarManager alloc] init];
     // grab calendar file from website
     [m scanICSFileAtRemoteURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://alirahm.com/calendars/%@.ics", school]] withCompletionHandler:^(MXLCalendar *cal, NSError *e){
-        //get the documents directory:
-        NSArray *paths = NSSearchPathForDirectoriesInDomains
-        (NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsDirectory = [paths objectAtIndex:0];
         
-        //make a file name to write the data to using the documents directory:
-        NSString *fileName = [NSString stringWithFormat:@"%@/calendar.txt",
-                              documentsDirectory];
+        //make a file name to write the data to using the shared app directory:
+        NSString *groupURL = [[[NSFileManager defaultManager]
+                           containerURLForSecurityApplicationGroupIdentifier:
+                           @"group.com.alirahman.schedule"] path];
+        NSString *fileName = [NSString stringWithFormat:@"%@calendar.txt",
+                              groupURL];
 
       
 

@@ -559,6 +559,7 @@
 					};
 					CC637A671CE11D2900C6115A = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 8H2P53B5VF;
 					};
 				};
 			};
@@ -885,6 +886,8 @@
 		CC637A821CE11D2900C6115A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "WatchSchedule Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AliRahman.BellSchedule.watchkitapp.watchkitextension;
@@ -899,6 +902,8 @@
 		CC637A831CE11D2900C6115A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "WatchSchedule Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AliRahman.BellSchedule.watchkitapp.watchkitextension;

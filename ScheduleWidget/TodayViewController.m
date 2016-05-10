@@ -17,19 +17,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"SchoolName"] == nil) {
-        [[NSUserDefaults standardUserDefaults] setValue: @"adlaiestevenson" forKey:@"SchoolName"];
-        [[NSUserDefaults standardUserDefaults] setValue:@"Adlai E. Stevenson High School" forKey:@"SchoolDisplay"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
-    NSString *school = [[NSUserDefaults standardUserDefaults] valueForKey:@"SchoolName"];
     
+    NSString *school = [[NSUserDefaults standardUserDefaults] valueForKey:@"SchoolName"];
+    if (school == nil || [school isEqualToString: @""]) {
+        school = @"adlaiestevenson";
+    }
     sm = [[ScheduleManager alloc] initWithSchool:school];
     NSString *period = [sm periodForTime];
     NSString *timeRem = [NSString stringWithFormat:@"%i minutes",(int)[sm timeRemaining]];
     [timeRatio setProgress:1-[sm timeRatio] animated:NO];
     [periodLabel setText:period];
     [timeRemaining setText:timeRem];
+    
+    NSLog(@"view did load");
     
 }
 
@@ -38,28 +38,20 @@
 }
 
 - (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler {
-    
+    NSLog(@"updating widget");
+
     // Perform any setup necessary in order to update the view.
     NSString *period = [sm periodForTime];
     NSString *timeRem = [NSString stringWithFormat:@"%i minutes",(int)[sm timeRemaining]];
     [timeRatio setProgress:[sm timeRatio] animated:NO];
-    if (period != periodLabel.text || timeRemaining.text != timeRem) {
-        [periodLabel setText:period];
-        [timeRemaining setText:timeRem];
-        completionHandler(NCUpdateResultNewData);
-    }
-    
-    /*  else if (timeRemaining != timeRem.text) {
-     [timeRem setText:[timeRem]]
-     }*/
-    else {
-        completionHandler(NCUpdateResultNoData);
-    }
+    [periodLabel setText:period];
+    [timeRemaining setText:timeRem];
+    completionHandler(NCUpdateResultNewData);
 }
 
 - (UIEdgeInsets)widgetMarginInsetsForProposedMarginInsets:(UIEdgeInsets)margins
 {
-    margins.bottom = 10.0;
+    margins.bottom = 5.0;
     margins.right = 5.0;
     return margins;
 }

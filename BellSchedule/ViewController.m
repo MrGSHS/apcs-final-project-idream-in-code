@@ -18,8 +18,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"View did load");
-    [self config];
 }
 
 -(void)config {

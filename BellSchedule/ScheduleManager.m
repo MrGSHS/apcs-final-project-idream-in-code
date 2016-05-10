@@ -108,11 +108,11 @@
     NSArray *schedule = [self getScheduleForSchool:s];
     
     // Grab the file
-    NSArray *paths = NSSearchPathForDirectoriesInDomains
-    (NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *fileName = [NSString stringWithFormat:@"%@/calendar.txt",
-                          documentsDirectory];
+    NSString *groupURL = [[[NSFileManager defaultManager]
+                       containerURLForSecurityApplicationGroupIdentifier:
+                       @"group.com.alirahman.schedule"] path];
+    NSString *fileName = [NSString stringWithFormat:@"%@calendar.txt",
+                          groupURL];
     NSString *file = [[NSString alloc] initWithContentsOfFile:fileName encoding:NSStringEncodingConversionAllowLossy error:nil];
     
     // Scrape file for current date
