@@ -43,6 +43,7 @@
             [[NSUserDefaults standardUserDefaults] setValue:@2 forKey:@"notifications"];
             [[NSUserDefaults standardUserDefaults] synchronize];
         }*/
+        
     }
     return self;
 }
@@ -114,6 +115,13 @@
     NSString *fileName = [NSString stringWithFormat:@"%@calendar.txt",
                           groupURL];
     NSString *file = [[NSString alloc] initWithContentsOfFile:fileName encoding:NSStringEncodingConversionAllowLossy error:nil];
+    
+    if (file == nil) {
+        NSLog(@"file is nil!");
+    }
+    else {
+        NSLog(@"file is not nil!");
+    }
     
     // Scrape file for current date
     NSDateComponents *c = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitDay fromDate:[NSDate date]];

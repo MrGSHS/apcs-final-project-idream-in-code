@@ -16,10 +16,6 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
 -(void)config {
     
     // Grab default color

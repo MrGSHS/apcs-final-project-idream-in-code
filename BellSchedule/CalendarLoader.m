@@ -41,14 +41,15 @@
             
         }
         
-        [content writeToFile:fileName
+        BOOL success = [content writeToFile:fileName
                   atomically:YES
                     encoding:NSStringEncodingConversionAllowLossy
                        error:nil];
-        
+    
+        completion();
 
     }];
-    completion();
+    
     
     
 }
