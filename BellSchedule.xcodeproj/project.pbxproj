@@ -24,6 +24,17 @@
 		CC4D11E51CB9B5B800CD28F7 /* ScheduleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4D11CB1CB8C0E300CD28F7 /* ScheduleManager.m */; };
 		CC637A4A1CD926D200C6115A /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC637A491CD926D200C6115A /* SettingsViewController.m */; };
 		CC637A4E1CD9288300C6115A /* MPGTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CC637A4D1CD9288300C6115A /* MPGTextField.m */; };
+		CC637A601CE11D2900C6115A /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC637A5E1CE11D2900C6115A /* Interface.storyboard */; };
+		CC637A621CE11D2900C6115A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC637A611CE11D2900C6115A /* Assets.xcassets */; };
+		CC637A691CE11D2900C6115A /* WatchSchedule Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CC637A681CE11D2900C6115A /* WatchSchedule Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CC637A711CE11D2900C6115A /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC637A701CE11D2900C6115A /* InterfaceController.m */; };
+		CC637A741CE11D2900C6115A /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC637A731CE11D2900C6115A /* ExtensionDelegate.m */; };
+		CC637A771CE11D2900C6115A /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC637A761CE11D2900C6115A /* NotificationController.m */; };
+		CC637A7A1CE11D2900C6115A /* GlanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC637A791CE11D2900C6115A /* GlanceController.m */; };
+		CC637A7C1CE11D2900C6115A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC637A7B1CE11D2900C6115A /* Assets.xcassets */; };
+		CC637A801CE11D2900C6115A /* WatchSchedule.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CC637A5C1CE11D2900C6115A /* WatchSchedule.app */; };
+		CC637A8A1CE2286500C6115A /* ScheduleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4D11CB1CB8C0E300CD28F7 /* ScheduleManager.m */; };
+		CC637A8B1CE2287100C6115A /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC25EA1CC87C9000ABB61C /* Schedule.m */; };
 		CCEC25EB1CC87C9000ABB61C /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC25EA1CC87C9000ABB61C /* Schedule.m */; };
 		CCEC25ED1CC8818700ABB61C /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC25EA1CC87C9000ABB61C /* Schedule.m */; };
 		CCEC261E1CCC4AF300ABB61C /* MXLCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC26151CCC4AF300ABB61C /* MXLCalendar.m */; };
@@ -52,6 +63,20 @@
 			remoteGlobalIDString = CC4D11D01CB9B44800CD28F7;
 			remoteInfo = ScheduleWidget;
 		};
+		CC637A6A1CE11D2900C6115A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC4D11A81CB8BE9300CD28F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CC637A671CE11D2900C6115A;
+			remoteInfo = "WatchSchedule Extension";
+		};
+		CC637A7E1CE11D2900C6115A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC4D11A81CB8BE9300CD28F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CC637A5B1CE11D2900C6115A;
+			remoteInfo = WatchSchedule;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -66,6 +91,28 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CC637A841CE11D2900C6115A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CC637A691CE11D2900C6115A /* WatchSchedule Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC637A881CE11D2900C6115A /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				CC637A801CE11D2900C6115A /* WatchSchedule.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -78,7 +125,7 @@
 		CC4D11B91CB8BE9300CD28F7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		CC4D11BA1CB8BE9300CD28F7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CC4D11BD1CB8BE9300CD28F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CC4D11BF1CB8BE9300CD28F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CC4D11BF1CB8BE9300CD28F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = BellSchedule/Assets.xcassets; sourceTree = "<group>"; };
 		CC4D11C21CB8BE9300CD28F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC4D11C41CB8BE9300CD28F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC4D11CA1CB8C0E300CD28F7 /* ScheduleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleManager.h; sourceTree = "<group>"; };
@@ -93,6 +140,22 @@
 		CC637A491CD926D200C6115A /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		CC637A4C1CD9288300C6115A /* MPGTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPGTextField.h; sourceTree = "<group>"; };
 		CC637A4D1CD9288300C6115A /* MPGTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPGTextField.m; sourceTree = "<group>"; };
+		CC637A5C1CE11D2900C6115A /* WatchSchedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchSchedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC637A5F1CE11D2900C6115A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		CC637A611CE11D2900C6115A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CC637A631CE11D2900C6115A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC637A681CE11D2900C6115A /* WatchSchedule Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchSchedule Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC637A6E1CE11D2900C6115A /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		CC637A6F1CE11D2900C6115A /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
+		CC637A701CE11D2900C6115A /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
+		CC637A721CE11D2900C6115A /* ExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
+		CC637A731CE11D2900C6115A /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
+		CC637A751CE11D2900C6115A /* NotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
+		CC637A761CE11D2900C6115A /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
+		CC637A781CE11D2900C6115A /* GlanceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlanceController.h; sourceTree = "<group>"; };
+		CC637A791CE11D2900C6115A /* GlanceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlanceController.m; sourceTree = "<group>"; };
+		CC637A7B1CE11D2900C6115A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CC637A7D1CE11D2900C6115A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCEC25E91CC87C9000ABB61C /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
 		CCEC25EA1CC87C9000ABB61C /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
 		CCEC26141CCC4AF300ABB61C /* MXLCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXLCalendar.h; sourceTree = "<group>"; };
@@ -145,6 +208,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CC637A651CE11D2900C6115A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -153,6 +223,8 @@
 			children = (
 				CC4D11B21CB8BE9300CD28F7 /* BellSchedule */,
 				CC4D11D51CB9B44800CD28F7 /* ScheduleWidget */,
+				CC637A5D1CE11D2900C6115A /* WatchSchedule */,
+				CC637A6C1CE11D2900C6115A /* WatchSchedule Extension */,
 				CC4D11D21CB9B44800CD28F7 /* Frameworks */,
 				CC4D11B11CB8BE9300CD28F7 /* Products */,
 			);
@@ -163,6 +235,8 @@
 			children = (
 				CC4D11B01CB8BE9300CD28F7 /* BellSchedule.app */,
 				CC4D11D11CB9B44800CD28F7 /* ScheduleWidget.appex */,
+				CC637A5C1CE11D2900C6115A /* WatchSchedule.app */,
+				CC637A681CE11D2900C6115A /* WatchSchedule Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,25 +244,9 @@
 		CC4D11B21CB8BE9300CD28F7 /* BellSchedule */ = {
 			isa = PBXGroup;
 			children = (
-				CCEC262C1CD1B0EF00ABB61C /* BellSchedule.entitlements */,
-				CC4D11B61CB8BE9300CD28F7 /* AppDelegate.h */,
-				CC4D11B71CB8BE9300CD28F7 /* AppDelegate.m */,
-				CC4D11B91CB8BE9300CD28F7 /* ViewController.h */,
-				CC4D11BA1CB8BE9300CD28F7 /* ViewController.m */,
-				CCEC263B1CD3ECCB00ABB61C /* ScheduleListViewController.h */,
-				CCEC263C1CD3ECCB00ABB61C /* ScheduleListViewController.m */,
-				CC637A481CD926D200C6115A /* SettingsViewController.h */,
-				CC637A491CD926D200C6115A /* SettingsViewController.m */,
-				CCEC25E91CC87C9000ABB61C /* Schedule.h */,
-				CCEC25EA1CC87C9000ABB61C /* Schedule.m */,
-				CC4D11CA1CB8C0E300CD28F7 /* ScheduleManager.h */,
-				CC4D11CB1CB8C0E300CD28F7 /* ScheduleManager.m */,
-				CCEC26281CCF040900ABB61C /* CalendarLoader.h */,
-				CCEC26291CCF040900ABB61C /* CalendarLoader.m */,
-				CC4D11BC1CB8BE9300CD28F7 /* Main.storyboard */,
-				CC4D11BF1CB8BE9300CD28F7 /* Assets.xcassets */,
-				CC4D11C11CB8BE9300CD28F7 /* LaunchScreen.storyboard */,
-				CC4D11C41CB8BE9300CD28F7 /* Info.plist */,
+				CC637A501CD9288300C6115A /* Custom Objects */,
+				CC637A4F1CD9288300C6115A /* View Controllers */,
+				CC637A531CD9288300C6115A /* External Libraries */,
 				CC4D11B31CB8BE9300CD28F7 /* Supporting Files */,
 			);
 			path = BellSchedule;
@@ -197,11 +255,10 @@
 		CC4D11B31CB8BE9300CD28F7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CC637A4B1CD9286D00C6115A /* MPGTextfield */,
-				CCEC263E1CD46B4500ABB61C /* Slide Menu */,
-				CCEC26131CCC4ABE00ABB61C /* MXLCalendarManager */,
-				CCEC26121CCC4AAB00ABB61C /* UAProgressView */,
-				CC4D11B41CB8BE9300CD28F7 /* main.m */,
+				CC4D11B61CB8BE9300CD28F7 /* AppDelegate.h */,
+				CC4D11B71CB8BE9300CD28F7 /* AppDelegate.m */,
+				CC637A521CD9288300C6115A /* Pre-generated */,
+				CC637A511CD9288300C6115A /* UI */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -233,6 +290,100 @@
 				CC637A4D1CD9288300C6115A /* MPGTextField.m */,
 			);
 			name = MPGTextfield;
+			sourceTree = "<group>";
+		};
+		CC637A4F1CD9288300C6115A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CC4D11B91CB8BE9300CD28F7 /* ViewController.h */,
+				CC4D11BA1CB8BE9300CD28F7 /* ViewController.m */,
+				CCEC263B1CD3ECCB00ABB61C /* ScheduleListViewController.h */,
+				CCEC263C1CD3ECCB00ABB61C /* ScheduleListViewController.m */,
+				CC637A481CD926D200C6115A /* SettingsViewController.h */,
+				CC637A491CD926D200C6115A /* SettingsViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		CC637A501CD9288300C6115A /* Custom Objects */ = {
+			isa = PBXGroup;
+			children = (
+				CCEC25E91CC87C9000ABB61C /* Schedule.h */,
+				CCEC25EA1CC87C9000ABB61C /* Schedule.m */,
+				CC4D11CA1CB8C0E300CD28F7 /* ScheduleManager.h */,
+				CC4D11CB1CB8C0E300CD28F7 /* ScheduleManager.m */,
+				CCEC26281CCF040900ABB61C /* CalendarLoader.h */,
+				CCEC26291CCF040900ABB61C /* CalendarLoader.m */,
+			);
+			name = "Custom Objects";
+			sourceTree = "<group>";
+		};
+		CC637A511CD9288300C6115A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				CC4D11BC1CB8BE9300CD28F7 /* Main.storyboard */,
+				CC4D11BF1CB8BE9300CD28F7 /* Assets.xcassets */,
+				CC4D11C11CB8BE9300CD28F7 /* LaunchScreen.storyboard */,
+			);
+			name = UI;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		CC637A521CD9288300C6115A /* Pre-generated */ = {
+			isa = PBXGroup;
+			children = (
+				CC4D11B41CB8BE9300CD28F7 /* main.m */,
+				CC4D11C41CB8BE9300CD28F7 /* Info.plist */,
+				CCEC262C1CD1B0EF00ABB61C /* BellSchedule.entitlements */,
+			);
+			name = "Pre-generated";
+			sourceTree = "<group>";
+		};
+		CC637A531CD9288300C6115A /* External Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				CC637A4B1CD9286D00C6115A /* MPGTextfield */,
+				CCEC263E1CD46B4500ABB61C /* Slide Menu */,
+				CCEC26131CCC4ABE00ABB61C /* MXLCalendarManager */,
+				CCEC26121CCC4AAB00ABB61C /* UAProgressView */,
+			);
+			name = "External Libraries";
+			sourceTree = "<group>";
+		};
+		CC637A5D1CE11D2900C6115A /* WatchSchedule */ = {
+			isa = PBXGroup;
+			children = (
+				CC637A5E1CE11D2900C6115A /* Interface.storyboard */,
+				CC637A611CE11D2900C6115A /* Assets.xcassets */,
+				CC637A631CE11D2900C6115A /* Info.plist */,
+			);
+			path = WatchSchedule;
+			sourceTree = "<group>";
+		};
+		CC637A6C1CE11D2900C6115A /* WatchSchedule Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CC637A6F1CE11D2900C6115A /* InterfaceController.h */,
+				CC637A701CE11D2900C6115A /* InterfaceController.m */,
+				CC637A721CE11D2900C6115A /* ExtensionDelegate.h */,
+				CC637A731CE11D2900C6115A /* ExtensionDelegate.m */,
+				CC637A751CE11D2900C6115A /* NotificationController.h */,
+				CC637A761CE11D2900C6115A /* NotificationController.m */,
+				CC637A781CE11D2900C6115A /* GlanceController.h */,
+				CC637A791CE11D2900C6115A /* GlanceController.m */,
+				CC637A7B1CE11D2900C6115A /* Assets.xcassets */,
+				CC637A7D1CE11D2900C6115A /* Info.plist */,
+				CC637A6D1CE11D2900C6115A /* Supporting Files */,
+			);
+			path = "WatchSchedule Extension";
+			sourceTree = "<group>";
+		};
+		CC637A6D1CE11D2900C6115A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CC637A6E1CE11D2900C6115A /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		CCEC26121CCC4AAB00ABB61C /* UAProgressView */ = {
@@ -311,11 +462,13 @@
 				CC4D11AD1CB8BE9300CD28F7 /* Frameworks */,
 				CC4D11AE1CB8BE9300CD28F7 /* Resources */,
 				CC4D11E31CB9B44800CD28F7 /* Embed App Extensions */,
+				CC637A881CE11D2900C6115A /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				CC4D11DE1CB9B44800CD28F7 /* PBXTargetDependency */,
+				CC637A7F1CE11D2900C6115A /* PBXTargetDependency */,
 			);
 			name = BellSchedule;
 			productName = BellSchedule;
@@ -338,6 +491,40 @@
 			productName = ScheduleWidget;
 			productReference = CC4D11D11CB9B44800CD28F7 /* ScheduleWidget.appex */;
 			productType = "com.apple.product-type.app-extension";
+		};
+		CC637A5B1CE11D2900C6115A /* WatchSchedule */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC637A851CE11D2900C6115A /* Build configuration list for PBXNativeTarget "WatchSchedule" */;
+			buildPhases = (
+				CC637A5A1CE11D2900C6115A /* Resources */,
+				CC637A841CE11D2900C6115A /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CC637A6B1CE11D2900C6115A /* PBXTargetDependency */,
+			);
+			name = WatchSchedule;
+			productName = WatchSchedule;
+			productReference = CC637A5C1CE11D2900C6115A /* WatchSchedule.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		CC637A671CE11D2900C6115A /* WatchSchedule Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC637A811CE11D2900C6115A /* Build configuration list for PBXNativeTarget "WatchSchedule Extension" */;
+			buildPhases = (
+				CC637A641CE11D2900C6115A /* Sources */,
+				CC637A651CE11D2900C6115A /* Frameworks */,
+				CC637A661CE11D2900C6115A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WatchSchedule Extension";
+			productName = "WatchSchedule Extension";
+			productReference = CC637A681CE11D2900C6115A /* WatchSchedule Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -366,6 +553,13 @@
 							};
 						};
 					};
+					CC637A5B1CE11D2900C6115A = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 8H2P53B5VF;
+					};
+					CC637A671CE11D2900C6115A = {
+						CreatedOnToolsVersion = 7.2;
+					};
 				};
 			};
 			buildConfigurationList = CC4D11AB1CB8BE9300CD28F7 /* Build configuration list for PBXProject "BellSchedule" */;
@@ -383,6 +577,8 @@
 			targets = (
 				CC4D11AF1CB8BE9300CD28F7 /* BellSchedule */,
 				CC4D11D01CB9B44800CD28F7 /* ScheduleWidget */,
+				CC637A5B1CE11D2900C6115A /* WatchSchedule */,
+				CC637A671CE11D2900C6115A /* WatchSchedule Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -406,6 +602,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC4D11DB1CB9B44800CD28F7 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC637A5A1CE11D2900C6115A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC637A621CE11D2900C6115A /* Assets.xcassets in Resources */,
+				CC637A601CE11D2900C6115A /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC637A661CE11D2900C6115A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC637A7C1CE11D2900C6115A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +665,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CC637A641CE11D2900C6115A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC637A8B1CE2287100C6115A /* Schedule.m in Sources */,
+				CC637A8A1CE2286500C6115A /* ScheduleManager.m in Sources */,
+				CC637A741CE11D2900C6115A /* ExtensionDelegate.m in Sources */,
+				CC637A711CE11D2900C6115A /* InterfaceController.m in Sources */,
+				CC637A771CE11D2900C6115A /* NotificationController.m in Sources */,
+				CC637A7A1CE11D2900C6115A /* GlanceController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -459,6 +685,16 @@
 			isa = PBXTargetDependency;
 			target = CC4D11D01CB9B44800CD28F7 /* ScheduleWidget */;
 			targetProxy = CC4D11DD1CB9B44800CD28F7 /* PBXContainerItemProxy */;
+		};
+		CC637A6B1CE11D2900C6115A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CC637A671CE11D2900C6115A /* WatchSchedule Extension */;
+			targetProxy = CC637A6A1CE11D2900C6115A /* PBXContainerItemProxy */;
+		};
+		CC637A7F1CE11D2900C6115A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CC637A5B1CE11D2900C6115A /* WatchSchedule */;
+			targetProxy = CC637A7E1CE11D2900C6115A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -469,6 +705,7 @@
 				CC4D11BD1CB8BE9300CD28F7 /* Base */,
 			);
 			name = Main.storyboard;
+			path = BellSchedule;
 			sourceTree = "<group>";
 		};
 		CC4D11C11CB8BE9300CD28F7 /* LaunchScreen.storyboard */ = {
@@ -477,6 +714,7 @@
 				CC4D11C21CB8BE9300CD28F7 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = BellSchedule;
 			sourceTree = "<group>";
 		};
 		CC4D11D91CB9B44800CD28F7 /* MainInterface.storyboard */ = {
@@ -485,6 +723,14 @@
 				CC4D11DA1CB9B44800CD28F7 /* Base */,
 			);
 			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		CC637A5E1CE11D2900C6115A /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CC637A5F1CE11D2900C6115A /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -636,6 +882,68 @@
 			};
 			name = Release;
 		};
+		CC637A821CE11D2900C6115A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "WatchSchedule Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = AliRahman.BellSchedule.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Debug;
+		};
+		CC637A831CE11D2900C6115A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "WatchSchedule Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = AliRahman.BellSchedule.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Release;
+		};
+		CC637A861CE11D2900C6115A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				IBSC_MODULE = WatchSchedule_Extension;
+				INFOPLIST_FILE = WatchSchedule/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = AliRahman.BellSchedule.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Debug;
+		};
+		CC637A871CE11D2900C6115A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				IBSC_MODULE = WatchSchedule_Extension;
+				INFOPLIST_FILE = WatchSchedule/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = AliRahman.BellSchedule.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -665,6 +973,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		CC637A811CE11D2900C6115A /* Build configuration list for PBXNativeTarget "WatchSchedule Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC637A821CE11D2900C6115A /* Debug */,
+				CC637A831CE11D2900C6115A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CC637A851CE11D2900C6115A /* Build configuration list for PBXNativeTarget "WatchSchedule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC637A861CE11D2900C6115A /* Debug */,
+				CC637A871CE11D2900C6115A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

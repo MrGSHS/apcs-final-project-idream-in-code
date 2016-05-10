@@ -23,37 +23,35 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     NSString *school = [[NSUserDefaults standardUserDefaults] valueForKey:@"SchoolName"];
-
+    
     sm = [[ScheduleManager alloc] initWithSchool:school];
     NSString *period = [sm periodForTime];
-    NSString *timeRem = [NSString stringWithFormat:@"%i",(int)[sm timeRemaining]];
+    NSString *timeRem = [NSString stringWithFormat:@"%i minutes",(int)[sm timeRemaining]];
     [timeRatio setProgress:1-[sm timeRatio] animated:NO];
     [periodLabel setText:period];
     [timeRemaining setText:timeRem];
     
-
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler {
-    // Perform any setup necessary in order to update the view.
     
+    // Perform any setup necessary in order to update the view.
     NSString *period = [sm periodForTime];
-    NSString *timeRem = [NSString stringWithFormat:@"%i",(int)[sm timeRemaining]];
+    NSString *timeRem = [NSString stringWithFormat:@"%i minutes",(int)[sm timeRemaining]];
     [timeRatio setProgress:[sm timeRatio] animated:NO];
     if (period != periodLabel.text || timeRemaining.text != timeRem) {
         [periodLabel setText:period];
         [timeRemaining setText:timeRem];
         completionHandler(NCUpdateResultNewData);
     }
-  /*  else if (timeRemaining != timeRem.text) {
-        [timeRem setText:[timeRem]]
-    }*/
+    
+    /*  else if (timeRemaining != timeRem.text) {
+     [timeRem setText:[timeRem]]
+     }*/
     else {
         completionHandler(NCUpdateResultNoData);
     }

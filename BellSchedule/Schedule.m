@@ -28,12 +28,12 @@
 }
 
 -(NSArray *)getArray {
+    
     NSMutableArray *arr = [[NSMutableArray alloc] init];
     for (int i = 0; i < times.count; i++)
         [arr addObject:[[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"Period %i", i+1], times[i][0], times[i][1], nil]];
     
     return arr;
-    
 }
 
 @end

@@ -9,10 +9,25 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>Glance - WatchSchedule.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>Notification - WatchSchedule.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 		<key>ScheduleWidget.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
+		</dict>
+		<key>WatchSchedule.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -23,6 +38,11 @@
 			<true/>
 		</dict>
 		<key>CC4D11D01CB9B44800CD28F7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CC637A5B1CE11D2900C6115A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

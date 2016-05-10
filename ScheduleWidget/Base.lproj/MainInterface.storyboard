@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -16,30 +15,29 @@
                         <viewControllerLayoutGuide type="bottom" id="FKl-LY-JtV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvu-di-M4T">
-                                <rect key="frame" x="18" y="8" width="135" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvu-di-M4T">
+                                <rect key="frame" x="20" y="14" width="111" height="38"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="tvu-di-M4T" secondAttribute="height" multiplier="45:7" id="NUC-eb-0Og"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="eoI-yb-bdg"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jKF-Or-j5p">
-                                <rect key="frame" x="233" y="17.5" width="77" height="2"/>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jKF-Or-j5p">
+                                <rect key="frame" x="233" y="32" width="77" height="2"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="77" id="8Bl-Cm-vCu"/>
                                     <constraint firstAttribute="height" constant="2" id="CCO-Tk-FIx"/>
+                                    <constraint firstAttribute="width" constant="77" id="hGm-N7-EVl"/>
                                 </constraints>
                             </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="55" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rn-TA-VEn">
-                                <rect key="frame" x="197" y="8" width="32" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="55 minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rn-TA-VEn">
+                                <rect key="frame" x="139" y="8" width="86" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="32" id="4fu-zi-Xu5"/>
-                                    <constraint firstAttribute="height" constant="21" id="a4w-5I-bJ0"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="wsD-ZP-JqQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -47,13 +45,14 @@
                             </label>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="6rn-TA-VEn" secondAttribute="trailing" constant="75" id="Dtr-ZH-Siq"/>
-                            <constraint firstItem="jKF-Or-j5p" firstAttribute="trailing" secondItem="S3S-Oj-5AN" secondAttribute="trailingMargin" constant="6" id="ENx-B6-zd6"/>
-                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="tvu-di-M4T" secondAttribute="bottom" constant="8" id="JvV-7T-3rQ"/>
-                            <constraint firstItem="tvu-di-M4T" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" constant="2" id="Mox-Lt-lVQ"/>
-                            <constraint firstItem="tvu-di-M4T" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="8" id="NaO-Cp-f7t"/>
-                            <constraint firstItem="6rn-TA-VEn" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="WOu-9T-ddx"/>
-                            <constraint firstItem="jKF-Or-j5p" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="kga-8f-aey"/>
+                            <constraint firstItem="6rn-TA-VEn" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="8" id="3ZN-OM-fi5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jKF-Or-j5p" secondAttribute="trailing" constant="-10" id="Dkl-ex-uzb"/>
+                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="6rn-TA-VEn" secondAttribute="bottom" constant="8" id="Fmu-Ky-jPX"/>
+                            <constraint firstItem="jKF-Or-j5p" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="JWU-yM-1aR"/>
+                            <constraint firstItem="tvu-di-M4T" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="XWq-vo-OUR"/>
+                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="tvu-di-M4T" secondAttribute="bottom" constant="14" id="b2X-HC-6iF"/>
+                            <constraint firstItem="tvu-di-M4T" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="14" id="bra-f6-x6I"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6rn-TA-VEn" secondAttribute="trailing" constant="75" id="wUH-q0-YTx"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -61,7 +60,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="37"/>
+                    <size key="freeformSize" width="320" height="66"/>
                     <connections>
                         <outlet property="periodLabel" destination="tvu-di-M4T" id="V2k-pV-KKd"/>
                         <outlet property="timeRatio" destination="jKF-Or-j5p" id="c9U-86-My7"/>
@@ -70,7 +69,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="312" y="277.5"/>
+            <point key="canvasLocation" x="312" y="277"/>
         </scene>
     </scenes>
 </document>

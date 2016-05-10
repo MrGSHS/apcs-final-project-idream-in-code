@@ -105,7 +105,7 @@ NSArray *data;
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    int count = [[self applyFilterWithSearchQuery:self.text] count];
+    NSInteger count = [[self applyFilterWithSearchQuery:self.text] count];
     if (count == 0) {
         [UIView animateWithDuration:0.3
                          animations:^{

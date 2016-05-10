@@ -7,10 +7,12 @@
 //
 
 #import "ScheduleManager.h"
+//#import <UIKit/UIKit.h>
 @implementation ScheduleManager
 
-- (id)initWithSchool:(NSString *)s{
+- (id)initWithSchool:(NSString *)s {
     self = [super init];
+    
     if (self) {
         if ([self updateScheduleWithSchool:s]) {
             NSLog(@"Found a schedule for today!");
@@ -21,6 +23,26 @@
         
         _schedule = [currentSchedule getArray];
         
+     /*   if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"notifications"] intValue] == 1) {
+            for (NSArray *times in _schedule) {
+                // 0 is starting, 1 is ending -- Get current date, set schedule
+                NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+                
+                [components setHour:[times[1] hour]];
+                [components setMinute:[times[1] minute]];
+                
+                UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+                [localNotification setAlertTitle:@"Class is almost over..."];
+                [localNotification setAlertBody:@"Get ready"];
+                [localNotification setFireDate: [[NSCalendar currentCalendar] dateFromComponents:components]];
+                [localNotification setTimeZone:[NSTimeZone defaultTimeZone]];
+                
+            }
+            
+            // 2 means the notifications are enabled AND have already been set
+            [[NSUserDefaults standardUserDefaults] setValue:@2 forKey:@"notifications"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }*/
     }
     return self;
 }
@@ -52,18 +74,22 @@
                 title = components[i];
             }
             else {
+                
                 NSArray *startAndEnd = [components[i] componentsSeparatedByString:@"/"];
                 
                 int firstHour = [[[startAndEnd[0] componentsSeparatedByString:@":"] objectAtIndex:0] intValue];
                 int firstMinute = [[[startAndEnd[0] componentsSeparatedByString:@":"] objectAtIndex:1] intValue];
                 int secondHour = [[[startAndEnd[1] componentsSeparatedByString:@":"] objectAtIndex:0] intValue];
                 int secondMinute = [[[startAndEnd[1] componentsSeparatedByString:@":"] objectAtIndex:1] intValue];
+                
                 NSDateComponents *start = [[NSDateComponents alloc] init];
                 [start setHour:firstHour];
                 [start setMinute:firstMinute];
+                
                 NSDateComponents *end = [[NSDateComponents alloc] init];
                 [end setHour:secondHour];
                 [end setMinute:secondMinute];
+                
                 
                 [times addObject:[[NSArray alloc] initWithObjects:start,end, nil]];
             }
@@ -117,13 +143,13 @@
                     }
                 }
             }
-    
+            
         }
         
     }
     currentSchedule = [schedule objectAtIndex:0];
     currentPeriod = -1;
-
+    
     return false;
 }
 
@@ -135,18 +161,9 @@
                                   fromDate: [NSDate date]];
     
     
-   
-    NSInteger hr = [currentTime hour];
-    NSInteger min = [currentTime minute];
     
     
     for (int period = 0; period < _schedule.count; period++) {
-        NSInteger startMin = [_schedule[period][1] minute];
-        NSInteger startHr = [_schedule[period][1] hour];
-        NSInteger endMin = [_schedule[period][2] minute];
-        NSInteger endHr = [_schedule[period][2] hour];
-      //  NSLog(@"%i:%i, %i:%i, %i:%i", (int)hr, (int)min, (int)startHr, (int)startMin,(int) endHr, (int)endMin);
-        
         // Current time is between a classes start and end...
         if ([self aDateComponent:currentTime isBetween:_schedule[period][1] and:_schedule[period][2]] == 1) {
             currentPeriod = period;
@@ -179,7 +196,7 @@
     [self updatePeriod];
     if ([self isWeekend]) return @"Weekend";
     
-       if (currentPeriod == -1) {
+    if (currentPeriod == -1) {
         if ([self aDateComponent:currentTime isBetween:_schedule[0][1] and:_schedule[_schedule.count-1][2]] == 1) {
             return @"Passing period";
         }
@@ -199,9 +216,9 @@
         int startMinute = (int)[_schedule[currentPeriod][1] minute];
         
         NSString *s = @"";
-        if (startHour > 12) {
+        if (startHour >= 12) {
             startHour = startHour - 12;
-            if (startHour == 0) s = [NSString stringWithFormat:@"12:%02i PM", startHour ];
+            if (startHour == 0) s = [NSString stringWithFormat:@"12:%02i PM", startMinute ];
             else s = [NSString stringWithFormat:@"%i:%02i PM", startHour, startMinute];
         }
         else {
@@ -213,10 +230,46 @@
         // NSLog(@"Start: %i    End: %i", start,end);
         
         NSString *e = @"";
-        if (endHour > 12) {
+        if (endHour >= 12) {
             
             endHour = endHour - 12;
-            if (endHour == 0) e = [NSString stringWithFormat:@"12:%02i PM", endHour];
+            if (endHour == 0) e = [NSString stringWithFormat:@"12:%02i PM", endMinute];
+            else e = [NSString stringWithFormat:@"%i:%02i PM",  endHour, endMinute];
+        }
+        else {
+            e = [NSString stringWithFormat:@"%i:%02i AM", endHour, endMinute];
+        }
+        
+        return [NSString stringWithFormat:@"%@ - %@", s,e];
+    }
+    
+    return @"None.";
+}
+
+-(NSString *)getClassLengthOf:(NSInteger)period {
+    if ([self inSession] && (period >= 0 && period <_schedule.count)) {
+        int startHour = (int)[_schedule[period][1] hour];
+        int startMinute = (int)[_schedule[period][1] minute];
+        
+        NSString *s = @"";
+        if (startHour >= 12) {
+            startHour = startHour - 12;
+            if (startHour == 0) s = [NSString stringWithFormat:@"12:%02i PM", startMinute ];
+            else s = [NSString stringWithFormat:@"%i:%02i PM", startHour, startMinute];
+        }
+        else {
+            s = [NSString stringWithFormat:@"%i:%02i AM", startHour, startMinute];
+            
+        }
+        int endHour = (int)[_schedule[period][2] hour];
+        int endMinute = (int)[_schedule[period][2] minute];
+        // NSLog(@"Start: %i    End: %i", start,end);
+        
+        NSString *e = @"";
+        if (endHour >= 12) {
+            
+            endHour = endHour - 12;
+            if (endHour == 0) e = [NSString stringWithFormat:@"12:%02i PM", endMinute];
             else e = [NSString stringWithFormat:@"%i:%02i PM",  endHour, endMinute];
         }
         else {
@@ -226,41 +279,6 @@
         return [NSString stringWithFormat:@"%@ - %@", s,e];
     }
     return @"None.";
-}
-
--(NSString *)getClassLengthOf:(NSInteger)period {
-        if ([self inSession] && (period >= 0 && period <_schedule.count)) {
-            int startHour = (int)[_schedule[period][1] hour];
-            int startMinute = (int)[_schedule[period][1] minute];
-            
-            NSString *s = @"";
-            if (startHour > 12) {
-                startHour = startHour - 12;
-                if (startHour == 0) s = [NSString stringWithFormat:@"12:%02i PM", startHour ];
-                else s = [NSString stringWithFormat:@"%i:%02i PM", startHour, startMinute];
-            }
-            else {
-                s = [NSString stringWithFormat:@"%i:%02i AM", startHour, startMinute];
-                
-            }
-            int endHour = (int)[_schedule[period][2] hour];
-            int endMinute = (int)[_schedule[period][2] minute];
-            // NSLog(@"Start: %i    End: %i", start,end);
-            
-            NSString *e = @"";
-            if (endHour > 12) {
-                
-                endHour = endHour - 12;
-                if (endHour == 0) e = [NSString stringWithFormat:@"12:%02i PM", endHour];
-                else e = [NSString stringWithFormat:@"%i:%02i PM",  endHour, endMinute];
-            }
-            else {
-                e = [NSString stringWithFormat:@"%i:%02i AM", endHour, endMinute];
-            }
-            
-            return [NSString stringWithFormat:@"%@ - %@", s,e];
-        }
-        return @"None.";
 }
 
 ////////////////////////////////////
@@ -278,11 +296,11 @@
     NSInteger minutei = [[_schedule[currentPeriod] objectAtIndex:2] minute];
     NSInteger hourf = [[_schedule[currentPeriod] objectAtIndex:1] hour];
     NSInteger minutef = [[_schedule[currentPeriod] objectAtIndex:1] minute];
-
+    
     //  return ([_schedule[currentPeriod][2] intValue] -(float)t);
     // NSLog(@"h: %i, h2: %i, m: %i, m2: %i", hour,hour2,minute,min2);
     float totalClass =  ((houri - hourf)*60 + (minutei - minutef));
-
+    
     
     
     return (1-([self timeRemaining]/ totalClass));

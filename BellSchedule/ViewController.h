@@ -10,9 +10,9 @@
 #import "UAProgressView.h"
 #import "ScheduleManager.h"
 #import "SlideNavigationController.h"
+#import <WatchConnectivity/WatchConnectivity.h>
 
-
-@interface ViewController : UIViewController <SlideNavigationControllerDelegate>{
+@interface ViewController : UIViewController <SlideNavigationControllerDelegate, WCSessionDelegate>{
     SlideNavigationController *slideNavigation;
     IBOutlet UILabel *classPeriod;
     IBOutlet UILabel *timeLeft;

@@ -16,4 +16,7 @@
     CGFloat textFieldCellHeight;
 }
 
+-(IBAction)setColorScheme:(id)sender;
+-(IBAction)togglePushNotifications:(id)sender;
+
 @end

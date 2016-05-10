@@ -11,7 +11,8 @@
 
 @interface ScheduleListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
     ScheduleManager *scheduleManager;
+    IBOutlet UITableView *table;
 }
 -(IBAction)openSettings;
-
+-(void)updateTable;
 @end

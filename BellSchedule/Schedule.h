@@ -17,4 +17,5 @@
 -(NSString *)getTitle;
 -(NSArray <NSArray *> *)getTimes;
 -(NSArray *)getArray;
+
 @end

@@ -21,7 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    scheduleManager = [[ScheduleManager alloc] initWithSchool:@"adlaiestevenson"];
+    NSString *school = [[NSUserDefaults standardUserDefaults] valueForKey:@"SchoolName"];
+    scheduleManager = [[ScheduleManager alloc] initWithSchool:school];
 
 }
 
@@ -58,6 +59,13 @@
     [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:settings withCompletion:^ {
         NSLog(@"Completed popping and switching...");
     }];
+}
+
+-(void) updateTable {
+    NSString *school = [[NSUserDefaults standardUserDefaults] valueForKey:@"SchoolName"];
+    scheduleManager = [[ScheduleManager alloc] initWithSchool:school];
+    [table reloadData];
+    NSLog(@"Updating schedule list...");
 }
 
 /*
