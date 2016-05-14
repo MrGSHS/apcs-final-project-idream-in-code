@@ -156,6 +156,8 @@
 		CC637A791CE11D2900C6115A /* GlanceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlanceController.m; sourceTree = "<group>"; };
 		CC637A7B1CE11D2900C6115A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC637A7D1CE11D2900C6115A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC637A8F1CE2477900C6115A /* WatchSchedule.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WatchSchedule.entitlements; sourceTree = "<group>"; };
+		CC637A901CE247E400C6115A /* WatchSchedule Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "WatchSchedule Extension.entitlements"; sourceTree = "<group>"; };
 		CCEC25E91CC87C9000ABB61C /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
 		CCEC25EA1CC87C9000ABB61C /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
 		CCEC26141CCC4AF300ABB61C /* MXLCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXLCalendar.h; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 		CC637A5D1CE11D2900C6115A /* WatchSchedule */ = {
 			isa = PBXGroup;
 			children = (
+				CC637A8F1CE2477900C6115A /* WatchSchedule.entitlements */,
 				CC637A5E1CE11D2900C6115A /* Interface.storyboard */,
 				CC637A611CE11D2900C6115A /* Assets.xcassets */,
 				CC637A631CE11D2900C6115A /* Info.plist */,
@@ -363,6 +366,7 @@
 		CC637A6C1CE11D2900C6115A /* WatchSchedule Extension */ = {
 			isa = PBXGroup;
 			children = (
+				CC637A901CE247E400C6115A /* WatchSchedule Extension.entitlements */,
 				CC637A6F1CE11D2900C6115A /* InterfaceController.h */,
 				CC637A701CE11D2900C6115A /* InterfaceController.m */,
 				CC637A721CE11D2900C6115A /* ExtensionDelegate.h */,
@@ -556,10 +560,20 @@
 					CC637A5B1CE11D2900C6115A = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 8H2P53B5VF;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					CC637A671CE11D2900C6115A = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 8H2P53B5VF;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -886,12 +900,15 @@
 		CC637A821CE11D2900C6115A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "WatchSchedule Extension/WatchSchedule Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "WatchSchedule Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AliRahman.BellSchedule.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -902,12 +919,15 @@
 		CC637A831CE11D2900C6115A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "WatchSchedule Extension/WatchSchedule Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "WatchSchedule Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AliRahman.BellSchedule.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -919,12 +939,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WatchSchedule/WatchSchedule.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				IBSC_MODULE = WatchSchedule_Extension;
 				INFOPLIST_FILE = WatchSchedule/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = AliRahman.BellSchedule.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -936,12 +959,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WatchSchedule/WatchSchedule.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				IBSC_MODULE = WatchSchedule_Extension;
 				INFOPLIST_FILE = WatchSchedule/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = AliRahman.BellSchedule.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;

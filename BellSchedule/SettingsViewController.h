@@ -11,12 +11,13 @@
 
 @interface SettingsViewController : UITableViewController <MPGTextFieldDelegate, UITextFieldDelegate> {
     IBOutlet MPGTextField *schoolField;
+    IBOutlet UISwitch *notifications;
     NSArray *schools;
     UITapGestureRecognizer *tapBackground;
     CGFloat textFieldCellHeight;
 }
 
 -(IBAction)setColorScheme:(id)sender;
--(IBAction)togglePushNotifications:(id)sender;
+-(IBAction)togglePushNotifications;
 
 @end

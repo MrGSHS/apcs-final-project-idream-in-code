@@ -8,6 +8,7 @@
 #import "MPGTextField.h"
 
 @implementation MPGTextField
+@synthesize delegate;
 
 //Private declaration of UITableViewController that will present the results in a popover depending on the search query typed by the user.
 UITableViewController *results;

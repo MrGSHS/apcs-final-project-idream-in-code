@@ -21,6 +21,7 @@
     ScheduleManager *sm;
 }
 
+-(void)config;
 
 
 @end

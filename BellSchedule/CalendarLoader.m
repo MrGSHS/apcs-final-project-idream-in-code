@@ -45,11 +45,12 @@
                   atomically:YES
                     encoding:NSStringEncodingConversionAllowLossy
                        error:nil];
-    
-        completion();
+        NSLog(@"%i",success);
+        
 
     }];
-    
+    completion();
+
     
     
 }

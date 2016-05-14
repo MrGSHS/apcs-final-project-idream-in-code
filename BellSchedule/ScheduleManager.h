@@ -16,11 +16,14 @@
 }
 
 @property (nonatomic,retain) NSArray *schedule;
+@property (nonatomic, retain) NSString *currentSchool;
 
+-(int)getCurrentPeriod;
 - (NSString *)periodForTime;
 -(float)timeRatio;
 -(NSInteger)timeRemaining;
 -(NSString *)getClassLength;
 -(NSString *)getClassLengthOf:(NSInteger)period;
 -(id)initWithSchool:(NSString *)s;
+-(int)aDateComponent:(NSDateComponents *)a isBetween:(NSDateComponents *)b and:(NSDateComponents *)c;
 @end

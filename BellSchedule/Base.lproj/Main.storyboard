@@ -58,7 +58,7 @@
                             </label>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="COP-Od-6st" customClass="UAProgressView">
                                 <rect key="frame" x="91" y="161" width="419" height="419"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="COP-Od-6st" secondAttribute="height" multiplier="1:1" id="8fj-AA-aSz"/>
                                     <constraint firstAttribute="width" secondItem="COP-Od-6st" secondAttribute="height" multiplier="1:1" id="DIf-7k-aLx"/>
@@ -217,6 +217,7 @@
                                                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                     <connections>
                                                         <action selector="dismissKeyboard" destination="YAs-du-uEk" eventType="editingDidEndOnExit" id="2QX-xG-m4i"/>
+                                                        <outlet property="delegate" destination="YAs-du-uEk" id="cH9-jP-Dtf"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -268,7 +269,7 @@
                                                         <constraint firstAttribute="height" constant="31" id="idG-V0-eeY"/>
                                                     </constraints>
                                                     <connections>
-                                                        <action selector="togglePushNotifications:" destination="YAs-du-uEk" eventType="valueChanged" id="e72-57-Bf3"/>
+                                                        <action selector="togglePushNotifications" destination="YAs-du-uEk" eventType="valueChanged" id="p4h-Tw-Tdb"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -394,6 +395,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="notifications" destination="TsZ-jQ-nt6" id="LNA-zz-jye"/>
                         <outlet property="schoolField" destination="zWN-oy-ez1" id="5pI-hS-fht"/>
                     </connections>
                 </tableViewController>

@@ -20,17 +20,16 @@
     
     // Set textfield based on current school
     NSString *curr =[[NSUserDefaults standardUserDefaults] valueForKey:@"SchoolDisplay"];
+
+
     [schoolField setText:curr];
     
     // Cell must adjust to accomodate suggestion box
     textFieldCellHeight = 82;
     
-    // Set textfield delegate to be self
-    [schoolField setDelegate:self];
+    
     // Pull schools from an array (probably scrape the options off the internet)
     schools = [self parseAvailableSchoolSchedules];
-
-    // Color picker setup
 
     // Do any additional setup after loading the view.
 }
@@ -67,12 +66,13 @@
     return YES;
 }
 
+
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
     // To resign first responder if keyboard is active
     tapBackground = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [tapBackground setNumberOfTapsRequired:1];
   //  [self.view addGestureRecognizer:tapBackground];
-    
+    NSLog(@"EDITING");
 
     textFieldCellHeight = 290;
     [self.tableView beginUpdates];
@@ -90,7 +90,6 @@
 
 -(void)textField:(MPGTextField *)textField didEndEditingWithSelection:(NSDictionary *)result {
     NSString *code = [result objectForKey:@"code"];
-    NSLog(@"%@", code);
     if (code != [[NSUserDefaults standardUserDefaults] valueForKey:@"SchoolName"] && ![code isEqualToString: @"" ] && code != nil) {
         [[NSUserDefaults standardUserDefaults] setValue:code forKey:@"SchoolName"];
         [[NSUserDefaults standardUserDefaults] setValue:[result objectForKey:@"DisplayText"] forKey:@"SchoolDisplay"];
@@ -116,7 +115,11 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     [schoolField setText:[[NSUserDefaults standardUserDefaults] valueForKey:@"SchoolDisplay"]];
-
+    // Set switch based on curr notification settings
+    int switchVal = [[[NSUserDefaults standardUserDefaults] valueForKey:@"notifications"] intValue];
+    if (switchVal == 1 || switchVal == 2) {
+        [notifications setOn:YES];
+    }
 }
 
 -(IBAction)setColorScheme:(id)sender {
@@ -170,8 +173,7 @@
     
 }
 
--(IBAction)togglePushNotifications:(id)sender {
-    UISwitch *notificationSwitch = (UISwitch *)sender;
+-(IBAction)togglePushNotifications {
     
     /*  Used to test notifications
      UILocalNotification *test = [[UILocalNotification alloc] init];
@@ -182,7 +184,7 @@
      [[UIApplication sharedApplication] scheduleLocalNotification:test];
      */
     
-    if ([notificationSwitch isOn]) {
+    if ([notifications isOn]) {
         // Enable Local Notifications
         [[NSUserDefaults standardUserDefaults] setValue:@1 forKey:@"notifications"];
         [[NSUserDefaults standardUserDefaults] synchronize];
@@ -195,16 +197,5 @@
         [[UIApplication sharedApplication] cancelAllLocalNotifications];
     }
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -7,53 +7,26 @@
 //
 
 #import "ScheduleManager.h"
-//#import <UIKit/UIKit.h>
 @implementation ScheduleManager
 
 - (id)initWithSchool:(NSString *)s {
     self = [super init];
-    
+    _currentSchool = s;
     if (self) {
-        if ([self updateScheduleWithSchool:s]) {
-            NSLog(@"Found a schedule for today!");
-        }
-        else {
-            NSLog(@"No schedule found for today.");
-        }
         
+        [self updateScheduleWithSchool];
         _schedule = [currentSchedule getArray];
-        
-     /*   if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"notifications"] intValue] == 1) {
-            for (NSArray *times in _schedule) {
-                // 0 is starting, 1 is ending -- Get current date, set schedule
-                NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
-                
-                [components setHour:[times[1] hour]];
-                [components setMinute:[times[1] minute]];
-                
-                UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-                [localNotification setAlertTitle:@"Class is almost over..."];
-                [localNotification setAlertBody:@"Get ready"];
-                [localNotification setFireDate: [[NSCalendar currentCalendar] dateFromComponents:components]];
-                [localNotification setTimeZone:[NSTimeZone defaultTimeZone]];
-                
-            }
-            
-            // 2 means the notifications are enabled AND have already been set
-            [[NSUserDefaults standardUserDefaults] setValue:@2 forKey:@"notifications"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-        }*/
         
     }
     return self;
 }
 
 // Scrapes schedule of each school
--(NSArray *)getScheduleForSchool:(NSString *)school {
+-(NSArray *)getScheduleForSchool {
     
     NSMutableArray *sched = [[NSMutableArray alloc] init];
     NSError *err = nil;
-    NSString *myTxtFile = [NSString stringWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://alirahm.com/schedules/%@.txt", school]] encoding:NSUTF8StringEncoding error:&err];
+    NSString *myTxtFile = [NSString stringWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://alirahm.com/schedules/%@.txt", _currentSchool]] encoding:NSUTF8StringEncoding error:&err];
     
     //Split by hyphen
     NSArray<NSString *> *schedules = [myTxtFile componentsSeparatedByString:@"-"];
@@ -105,8 +78,8 @@
     return (currentPeriod <_schedule.count && currentPeriod>=0);
 }
 
--(BOOL)updateScheduleWithSchool:(NSString *)s {
-    NSArray *schedule = [self getScheduleForSchool:s];
+-(BOOL)updateScheduleWithSchool {
+    NSArray *schedule = [self getScheduleForSchool];
     
     // Grab the file
     NSString *groupURL = [[[NSFileManager defaultManager]
@@ -115,13 +88,6 @@
     NSString *fileName = [NSString stringWithFormat:@"%@calendar.txt",
                           groupURL];
     NSString *file = [[NSString alloc] initWithContentsOfFile:fileName encoding:NSStringEncodingConversionAllowLossy error:nil];
-    
-    if (file == nil) {
-        NSLog(@"file is nil!");
-    }
-    else {
-        NSLog(@"file is not nil!");
-    }
     
     // Scrape file for current date
     NSDateComponents *c = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitDay fromDate:[NSDate date]];
@@ -162,6 +128,7 @@
 }
 
 -(void)updatePeriod {
+    if ([self inSession]) {
     // Get current time
     currentPeriod = -1;
     NSCalendar *gregorianCal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
@@ -178,13 +145,14 @@
         }
         
     }
+    }
+    else currentPeriod = -1;
 }
 
 -(int)aDateComponent:(NSDateComponents *)a isBetween:(NSDateComponents *)b and:(NSDateComponents *)c {
     
     // If 1: yes
     // If -1: no
-    // If 0: on one of the borders
     
     if (([a hour] > [b hour] || ([a hour] == [b hour] && [a minute] > [b minute]))
         &&
@@ -204,7 +172,7 @@
     [self updatePeriod];
     if ([self isWeekend]) return @"Weekend";
     
-    if (currentPeriod == -1) {
+    else if (currentPeriod == -1) {
         if ([self aDateComponent:currentTime isBetween:_schedule[0][1] and:_schedule[_schedule.count-1][2]] == 1) {
             return @"Passing period";
         }
@@ -288,6 +256,9 @@
     }
     return @"None.";
 }
+-(int)getCurrentPeriod {
+    return currentPeriod;
+}
 
 ////////////////////////////////////
 //  Utility Methods used for UI ///
@@ -332,7 +303,12 @@
 }
 
 -(BOOL)isWeekend {
-    int d = (int)[currentTime weekday];
+    NSCalendar *gregorianCal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+
+    currentTime = [gregorianCal components: (NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitMinute)
+                                  fromDate: [NSDate date]];
+
+    int d = [currentTime weekday];
     return (d  == 1 || d == 7);
     
 }
