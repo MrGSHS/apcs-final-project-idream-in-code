@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "ScheduleListViewController.h"
 #import "SlideNavigationController.h"
+#import "CalendarLoader.h"
+#import "ScheduleManager.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +19,16 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    // If watch connectivity is necessary...
+    
+    if ([WCSession isSupported]) {
+        session = [WCSession defaultSession];
+        [session setDelegate:self];
+        [session activateSession];
+    }
+    
+    
     // Set up left "drawer"
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     [[NSUserDefaults standardUserDefaults] setValue:@(NO) forKey:@"_UIConstraintBasedLayoutLogUnsatisfiable"];
@@ -28,7 +40,8 @@
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
         [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
     }
-       return YES;
+    
+    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -52,5 +65,17 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+-(void)session:(WCSession *)session didReceiveMessage:(NSDictionary<NSString *,id> *)message replyHandler:(void (^)(NSDictionary<NSString *,id> * _Nonnull))replyHandler {
+    
+    NSString *school = [[NSUserDefaults standardUserDefaults] valueForKey:@"SchoolName"];
+    
+    // Start up schedule upon completion (downloads schedule)
+    ScheduleManager *sm = [[ScheduleManager alloc] initWithSchool:school];
+    replyHandler(@{@"period": sm.periodForTime, @"length":[sm getClassLength], @"duration": [NSNumber numberWithInteger:[sm timeRemaining]], @"ratio": [NSNumber numberWithFloat:[sm timeRatio]]});
+    
+}
+
 
 @end

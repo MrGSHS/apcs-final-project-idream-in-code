@@ -127,8 +127,7 @@
     return false;
 }
 
--(void)updatePeriod {
-    if ([self inSession]) {
+-(BOOL)updatePeriod {
     // Get current time
     currentPeriod = -1;
     NSCalendar *gregorianCal = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
@@ -145,8 +144,7 @@
         }
         
     }
-    }
-    else currentPeriod = -1;
+    return true;
 }
 
 -(int)aDateComponent:(NSDateComponents *)a isBetween:(NSDateComponents *)b and:(NSDateComponents *)c {
@@ -308,9 +306,17 @@
     currentTime = [gregorianCal components: (NSCalendarUnitWeekday | NSCalendarUnitHour | NSCalendarUnitMinute)
                                   fromDate: [NSDate date]];
 
-    int d = [currentTime weekday];
+    NSInteger d = [currentTime weekday];
     return (d  == 1 || d == 7);
     
 }
-
+/* Currently disabled until timer support is proper...
+ 
+-(NSDateComponents *)endOfCurrentPeriod {
+    if (![self isWeekend] && [self inSession] && currentPeriod != -1) {
+        return _schedule[currentPeriod][2];
+    }
+    return nil;
+}
+*/
 @end

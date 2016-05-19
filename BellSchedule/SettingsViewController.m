@@ -25,7 +25,7 @@
     [schoolField setText:curr];
     
     // Cell must adjust to accomodate suggestion box
-    textFieldCellHeight = 82;
+    textFieldCellHeight = 290;
     
     
     // Pull schools from an array (probably scrape the options off the internet)
@@ -102,9 +102,11 @@
     if (indexPath.section == 0 && indexPath.row == 0) {
         return textFieldCellHeight;
     }
-    else {
-        return 82;
+    else if (indexPath.row == 1) {
+        return 0;
+        // temporarily disable push notifications
     }
+    else return 82;
 }
 
 -(IBAction) dismissKeyboard {

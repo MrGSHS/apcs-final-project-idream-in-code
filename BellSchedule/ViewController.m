@@ -9,7 +9,6 @@
 #import "ViewController.h"
 #import "CalendarLoader.h"
 #import "ScheduleListViewController.h"
-//#import <WatchConnectivity/WatchConnectivity.h>
 
 @interface ViewController ()
 
@@ -17,9 +16,18 @@
 
 @implementation ViewController
 
+-(id) init {
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
 -(void)viewDidLoad {
     [super viewDidLoad];
     [self config];
+    
     
 }
 
@@ -162,6 +170,7 @@
 {
     return YES;
 }
+
 
 
 
